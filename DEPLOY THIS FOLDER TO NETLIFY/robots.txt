@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Sitemap: https://seascape-vacations.com/sitemap.xml
+
+# Keep Google out of common legacy/WordPress/admin endpoints that do not exist on this site.
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /wp-*.php
+Disallow: /author/
+Disallow: /dashboard/
+Disallow: /add-listing/
+Disallow: /messages/
+Disallow: /membership-webhook/

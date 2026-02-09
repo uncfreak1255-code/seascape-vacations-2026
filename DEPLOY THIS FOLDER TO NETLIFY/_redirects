@@ -1,0 +1,39 @@
+# Canonicalize common trailing-slash variants
+/about-us   /about-us/   301
+/property-management   /property-management/   301
+/properties   /properties/   301
+
+# Friendly alias for owner-focused landing
+/property-owners   /property-management/   301
+/property-owners/*   /property-management/   301
+
+# Old/legacy paths (from previous site or bots) mapped to the closest current content
+/blog/*   /guides/   301
+/blog   /guides/   301
+/experiences/*   /about-us/   301
+/experiences   /about-us/   301
+/travel-spot-guide/*   /guides/   301
+/what-awaits-you-at-seascape-vacations/*   /guides/   301
+/contact-us   /?page=contact   301
+
+# Legacy listing pages (singular)
+/listing/*   /?rental=:splat   301
+
+# Legacy author pages (WordPress)
+/author/*   /about-us/   301
+
+# Legacy city/destination URLs -> current guides
+/city/sarasota/*   /area-guide-sarasota.html   301
+/city/sarasota   /area-guide-sarasota.html   301
+/destinations/siesta-key/*   /area-guide-siesta-key.html   301
+/destinations/siesta-key   /area-guide-siesta-key.html   301
+/destinations/sarasota/*   /area-guide-sarasota.html   301
+/destinations/sarasota   /area-guide-sarasota.html   301
+/destinations/bradenton/*   /area-guide-bradenton.html   301
+/destinations/bradenton   /area-guide-bradenton.html   301
+/destinations/anna-maria-island/*   /area-guide-ami.html   301
+/destinations/anna-maria-island   /area-guide-ami.html   301
+
+# Property deep links (legacy)
+/listings/:id   /?listing=:id   301
+/rentals/*   /?rental=:splat   301

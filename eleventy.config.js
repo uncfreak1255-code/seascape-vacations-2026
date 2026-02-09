@@ -1,0 +1,39 @@
+module.exports = function(eleventyConfig) {
+  // Pass through static assets (preserves current design)
+  eleventyConfig.addPassthroughCopy({"index.html": "index.html"});
+  eleventyConfig.addPassthroughCopy("images");
+  eleventyConfig.addPassthroughCopy("css");
+  eleventyConfig.addPassthroughCopy("js");
+  eleventyConfig.addPassthroughCopy("*.jpg");
+  eleventyConfig.addPassthroughCopy("*.png");
+  eleventyConfig.addPassthroughCopy("netlify");
+  eleventyConfig.addPassthroughCopy("_headers");
+  
+  // Watch for changes during development
+  eleventyConfig.addWatchTarget("./_data/");
+  
+  // Simple title filter - just appends site name if not already there
+  eleventyConfig.addFilter("seoTitle", function(title) {
+    if (!title) return "Seascape Vacations | Florida Gulf Coast Vacation Rentals";
+    if (title.includes("Seascape")) return title;
+    return `${title} | Seascape Vacations`;
+  });
+  
+  // Simple description filter - provides fallback
+  eleventyConfig.addFilter("seoDescription", function(description) {
+    if (!description) return "Luxury vacation rentals on Florida's Gulf Coast. Book direct and save.";
+    return description;
+  });
+
+  return {
+    dir: {
+      input: "src",
+      output: "_site",
+      includes: "_includes",
+      data: "_data"
+    },
+    templateFormats: ["njk", "html", "md"],
+    htmlTemplateEngine: "njk",
+    markdownTemplateEngine: "njk"
+  };
+};
