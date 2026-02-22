@@ -15,7 +15,7 @@ const API_CONFIG = {
     propertyId: '', // TODO: Add your GA4 Property ID
     
     // API Key from Google Cloud Console
-    apiKey: 'AIzaSyA4CuI6-d35RP21U8IaRYFhI-vnas-uGyU',
+    apiKey: '', // TODO: Move to Netlify env var GOOGLE_API_KEY
     
     // Project ID
     projectId: 'seascape-analytics-dashboard',
