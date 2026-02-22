@@ -2,6 +2,8 @@
 <script type="application/ld+json">{
     "@context": "https://schema.org",
     "@type": "VacationRental",
+    "additionalType": "House",
+    "identifier": "seascape-189511",
     "name": "The Oasis — Pool, 2 Hot Tubs & Putting Green",
     "alternateName": "The Oasis",
     "description": "Vacation rental in Bradenton, FL with heated pool, 2 hot tubs, putting green, gameroom with pool table and foosball. 5 bedrooms, 3 bathrooms, sleeps 16 guests. Near Anna Maria Island beaches and IMG Academy.",
@@ -11,30 +13,44 @@
         "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/51916-189511-nitpZTl7tc027s3c6fWxtHLNuBZKytwSSjlz4TbXaEQ-64dffd0b4ef94",
         "https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/51916-189511-aHV3Wyi83yrNT6dPnJVox7aZjJMatTbxV5jS1pbu3ms-64dffd17771bc"
     ],
-    "numberOfBedrooms": 5,
-    "numberOfBathroomsTotal": 3,
-    "occupancy": {"@type": "QuantitativeValue", "maxValue": 16},
-    "amenityFeature": [
-        {"@type": "LocationFeatureSpecification", "name": "Heated Pool", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "2 Hot Tubs", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Putting Green", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Gameroom", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Pool Table", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Foosball Table", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "75-inch Smart TV", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "WiFi 250+ Mbps", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Outdoor Grill", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Beach Chairs & Cooler", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Pack N Play", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Washer/Dryer", "value": true},
-        {"@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true}
-    ],
+    "containsPlace": {
+        "@type": "Accommodation",
+        "additionalType": "EntirePlace",
+        "numberOfBedrooms": 5,
+        "numberOfBathroomsTotal": 3,
+        "numberOfRooms": 10,
+        "occupancy": {"@type": "QuantitativeValue", "value": 16},
+        "bed": [
+            {"@type": "BedDetails", "numberOfBeds": 3, "typeOfBed": "King"},
+            {"@type": "BedDetails", "numberOfBeds": 2, "typeOfBed": "Full"},
+            {"@type": "BedDetails", "numberOfBeds": 2, "typeOfBed": "Twin"},
+            {"@type": "BedDetails", "numberOfBeds": 2, "typeOfBed": "Trundle"}
+        ],
+        "amenityFeature": [
+            {"@type": "LocationFeatureSpecification", "name": "pool", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "hotTub", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "kitchen", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "outdoorGrill", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "tv", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "wifi", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "crib", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "washerDryer", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "ac", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "heating", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "childFriendly", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "selfCheckinCheckout", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "beachAccess", "value": true},
+            {"@type": "LocationFeatureSpecification", "name": "petsAllowed", "value": true}
+        ],
+        "petsAllowed": true
+    },
     "petsAllowed": "Small dogs under 30lb with approval. Pet fee: $230+tax.",
-    "checkinTime": "16:00",
-    "checkoutTime": "10:00",
-    "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "bestRating": "5", "reviewCount": "17"},
+    "checkinTime": "16:00:00-05:00",
+    "checkoutTime": "10:00:00-05:00",
+    "latitude": 27.48890,
+    "longitude": -82.56480,
+    "aggregateRating": {"@type": "AggregateRating", "ratingValue": 5.0, "bestRating": 5, "ratingCount": 17, "reviewCount": 17},
     "address": {"@type": "PostalAddress", "addressLocality": "Bradenton", "addressRegion": "FL", "addressCountry": "US"},
-    "geo": {"@type": "GeoCoordinates", "latitude": 27.4889, "longitude": -82.5648},
     "provider": {"@type": ["LocalBusiness", "LodgingBusiness"], "name": "Seascape Vacations", "url": "https://seascape-vacations.com", "telephone": "+1-941-704-8545", "email": "info@seascape-vacations.com"}
 }</script>
 <script type="application/ld+json">{
