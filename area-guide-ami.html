@@ -553,6 +553,45 @@
             font-size: 16px;
         }
     </style>
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Seascape Vacations",
+        "description": "Luxury vacation rental property management company serving Anna Maria Island, Bradenton, Sarasota, and Siesta Key, Florida.",
+        "url": "https://seascape-vacations.com",
+        "logo": "https://seascape-vacations.com/logo-optimized.png",
+        "image": "https://seascape-vacations.com/hero-optimized.jpg",
+        "telephone": "+1-941-704-8545",
+        "email": "info@seascape-vacations.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bradenton",
+            "addressRegion": "FL",
+            "addressCountry": "US"
+        },
+        "areaServed": [
+            {"@type": "City", "name": "Anna Maria Island"},
+            {"@type": "City", "name": "Bradenton"},
+            {"@type": "City", "name": "Sarasota"},
+            {"@type": "City", "name": "Siesta Key"},
+            {"@type": "City", "name": "Longboat Key"}
+        ],
+        "priceRange": "$400-$800/night",
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "00:00",
+            "closes": "23:59"
+        },
+        "sameAs": [
+            "https://www.facebook.com/SeascapeVacations",
+            "https://www.instagram.com/seascapevacations"
+        ]
+    }
+    </script>
 </head>
 
 <body>

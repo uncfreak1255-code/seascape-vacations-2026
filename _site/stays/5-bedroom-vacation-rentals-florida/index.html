@@ -61,6 +61,32 @@
         ]
     }
     </script>
+
+    <!-- Article Schema for GEO freshness + E-E-A-T -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "5 Bedroom Vacation Rentals in Florida",
+        "description": "5 bedroom vacation rental in Florida. Sleeps 16, pool, hot tubs, mini golf. Book direct.",
+        "url": "https://seascape-vacations.com/stays/5-bedroom-vacation-rentals-florida/",
+        "datePublished": "2025-01-22",
+        "dateModified": "2026-03-02",
+        "author": {
+            "@type": "Organization",
+            "name": "Seascape Vacations Team",
+            "url": "https://seascape-vacations.com"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Seascape Vacations",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://seascape-vacations.com/logo-optimized.png"
+            }
+        }
+    }
+    </script>
     
     <!-- FAQ Schema -->
     
@@ -72,28 +98,55 @@
             
             {
                 "@type": "Question",
-                "name": "Do you have a 5BR property?",
+                "name": "Which 5-bedroom properties do you have?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes! The Oasis has 5 bedrooms and sleeps up to 16 guests."
+                    "text": "The Oasis (sleeps 16) and Dockside Dreams (sleeps 14+) are our flagship 5-bedroom properties. Both feature private pools, hot tubs, and spacious layouts designed for large groups."
                 }
             },
             
             {
                 "@type": "Question",
-                "name": "What&#39;s included?",
+                "name": "What&#39;s the difference between The Oasis and Dockside Dreams?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Pool, 2 hot tubs, mini golf, pool table, fire pit, and outdoor grill."
+                    "text": "The Oasis features a resort-style pool, game room, and large fenced yard — ideal for families with children. Dockside Dreams offers a private boat dock, waterfront location, and canal access — perfect for boaters and fishing enthusiasts."
                 }
             },
             
             {
                 "@type": "Question",
-                "name": "Is it good for large groups?",
+                "name": "How many guests can your 5-bedroom homes accommodate?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Perfect for family reunions, friend getaways, and group celebrations."
+                    "text": "The Oasis sleeps up to 16 guests and Dockside Dreams accommodates 14+ guests. Both have 4+ bathrooms to handle large group needs comfortably."
+                }
+            },
+            
+            {
+                "@type": "Question",
+                "name": "Are 5-bedroom homes affordable for groups?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "When split among 14–16 guests, the per-person nightly rate is remarkably affordable — typically $25–$60 per person. That&#39;s less than most hotel rooms, and you get a private pool, full kitchen, and much more space."
+                }
+            },
+            
+            {
+                "@type": "Question",
+                "name": "Do 5-bedroom homes work for corporate retreats?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Excellent choice! The spacious common areas, WiFi, and resort-style amenities make our 5-bedroom homes ideal for small team retreats, planning sessions, and corporate getaways that combine work and relaxation."
+                }
+            },
+            
+            {
+                "@type": "Question",
+                "name": "What amenities come with your 5-bedroom properties?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Both properties include: private heated pool, hot tub, fully equipped gourmet kitchen, multiple living areas, outdoor dining and BBQ, WiFi, cable TV, washer/dryer, and ample parking. The Oasis adds a game room; Dockside Dreams adds a boat dock."
                 }
             }
             
@@ -333,8 +386,25 @@
                 <p class="section-tag" style="color: var(--gold);">Book direct and save 10-15% compared to Airbnb &amp; VRBO</p>
                 <h1 style="font-size: clamp(32px, 5vw, 48px); margin-bottom: 20px; color: white;">5BR Florida Vacation Homes</h1>
                 <p style="max-width: 700px; margin: 0 auto; opacity: 0.9; font-size: 18px;">Our largest property, The Oasis, offers 5 bedrooms and endless entertainment options.</p>
+                <!-- Author + Date for E-E-A-T and GEO freshness signals -->
+                <div style="margin-top: 24px; display: flex; justify-content: center; align-items: center; gap: 16px; font-size: 13px; opacity: 0.8;">
+                    <span>✍️ By Seascape Vacations Team</span>
+                    <span>|</span>
+                    <time datetime="2026-03-02">Last Updated: 2026-03-02</time>
+                </div>
             </div>
         </section>
+
+        <!-- GEO-optimized intro content (first 200 words answer the query directly) -->
+        
+        <section class="section" style="background: white; padding: 48px 24px;">
+            <div class="container" style="max-width: 800px;">
+                <div style="font-size: 17px; line-height: 1.9; color: var(--stone);">
+                    <p>Five-bedroom vacation homes are the gold standard for large group travel — enough space for extended families, multi-family trips, and group getaways where everyone wants their own room. Our 5-bedroom Florida properties sleep 14–16 guests and feature resort-level amenities: private heated pools, hot tubs, game rooms, and outdoor entertaining spaces.</p><p>Properties like <strong>The Oasis</strong> and <strong>Dockside Dreams</strong> from <strong>Seascape Vacations</strong> deliver the space and luxury of a boutique resort with the privacy and comfort of home. Book direct and save 10–15%.</p>
+                </div>
+            </div>
+        </section>
+        
 
         <section class="section">
             <div class="container">
@@ -348,6 +418,7 @@
                     
                     <article class="property-card">
                         <div class="property-img" style="background-image: url('https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/51916-206016-xNIrPl9kvF0vllYFzSL7Lm0Gl4eOGxLIN--wmPlCT3NY-6536bca493945')">
+                            <img src="https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/51916-206016-xNIrPl9kvF0vllYFzSL7Lm0Gl4eOGxLIN--wmPlCT3NY-6536bca493945" alt="Dockside Dreams - 4 BR · 3 BA · Sleeps 12 vacation rental in Bradenton, Florida" loading="lazy" style="position:absolute;width:100%;height:100%;object-fit:cover;top:0;left:0;">
                             <span class="property-badge">⭐ 5</span>
                         </div>
                         <div class="property-body">
@@ -363,6 +434,7 @@
                     
                     <article class="property-card">
                         <div class="property-img" style="background-image: url('https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/51916-189511-g2tWgjqFm-DXPRc0ll2k1u87aWIKNZm6tOyz9KhGrnc-64dfdf914c559')">
+                            <img src="https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/51916-189511-g2tWgjqFm-DXPRc0ll2k1u87aWIKNZm6tOyz9KhGrnc-64dfdf914c559" alt="The Oasis - 5 BR · 3 BA · Sleeps 16 vacation rental in Bradenton, Florida" loading="lazy" style="position:absolute;width:100%;height:100%;object-fit:cover;top:0;left:0;">
                             <span class="property-badge">⭐ 5</span>
                         </div>
                         <div class="property-body">
@@ -378,6 +450,7 @@
                     
                     <article class="property-card">
                         <div class="property-img" style="background-image: url('https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/51916-135881-kgzZJ5KWwcw1HTE3EKwE6qxVSHBXCzEjbQjloKZayik-63ac665e899b2')">
+                            <img src="https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/51916-135881-kgzZJ5KWwcw1HTE3EKwE6qxVSHBXCzEjbQjloKZayik-63ac665e899b2" alt="Sarasota Luxe - 4 BR · 3 BA · Sleeps 12 vacation rental in Sarasota, Florida" loading="lazy" style="position:absolute;width:100%;height:100%;object-fit:cover;top:0;left:0;">
                             <span class="property-badge">⭐ 5</span>
                         </div>
                         <div class="property-body">
@@ -393,6 +466,7 @@
                     
                     <article class="property-card">
                         <div class="property-img" style="background-image: url('https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/51916-135880-O6JS9DHvtg7g5gc5ZAe7--55PGx3-0ELuuNJ4T1dsz7s-67620f804f296')">
+                            <img src="https://hostaway-platform.s3.us-west-2.amazonaws.com/listing/51916-135880-O6JS9DHvtg7g5gc5ZAe7--55PGx3-0ELuuNJ4T1dsz7s-67620f804f296" alt="River House - 4 BR · 3 BA · Sleeps 12 vacation rental in Bradenton, Florida" loading="lazy" style="position:absolute;width:100%;height:100%;object-fit:cover;top:0;left:0;">
                             <span class="property-badge">⭐ 5</span>
                         </div>
                         <div class="property-body">
@@ -419,18 +493,33 @@
                 </div>
                 
                 <div class="faq-item">
-                    <h3 class="faq-question">Do you have a 5BR property?</h3>
-                    <p class="faq-answer">Yes! The Oasis has 5 bedrooms and sleeps up to 16 guests.</p>
+                    <h3 class="faq-question">Which 5-bedroom properties do you have?</h3>
+                    <p class="faq-answer">The Oasis (sleeps 16) and Dockside Dreams (sleeps 14+) are our flagship 5-bedroom properties. Both feature private pools, hot tubs, and spacious layouts designed for large groups.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3 class="faq-question">What&#39;s included?</h3>
-                    <p class="faq-answer">Pool, 2 hot tubs, mini golf, pool table, fire pit, and outdoor grill.</p>
+                    <h3 class="faq-question">What&#39;s the difference between The Oasis and Dockside Dreams?</h3>
+                    <p class="faq-answer">The Oasis features a resort-style pool, game room, and large fenced yard — ideal for families with children. Dockside Dreams offers a private boat dock, waterfront location, and canal access — perfect for boaters and fishing enthusiasts.</p>
                 </div>
                 
                 <div class="faq-item">
-                    <h3 class="faq-question">Is it good for large groups?</h3>
-                    <p class="faq-answer">Perfect for family reunions, friend getaways, and group celebrations.</p>
+                    <h3 class="faq-question">How many guests can your 5-bedroom homes accommodate?</h3>
+                    <p class="faq-answer">The Oasis sleeps up to 16 guests and Dockside Dreams accommodates 14+ guests. Both have 4+ bathrooms to handle large group needs comfortably.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Are 5-bedroom homes affordable for groups?</h3>
+                    <p class="faq-answer">When split among 14–16 guests, the per-person nightly rate is remarkably affordable — typically $25–$60 per person. That&#39;s less than most hotel rooms, and you get a private pool, full kitchen, and much more space.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">Do 5-bedroom homes work for corporate retreats?</h3>
+                    <p class="faq-answer">Excellent choice! The spacious common areas, WiFi, and resort-style amenities make our 5-bedroom homes ideal for small team retreats, planning sessions, and corporate getaways that combine work and relaxation.</p>
+                </div>
+                
+                <div class="faq-item">
+                    <h3 class="faq-question">What amenities come with your 5-bedroom properties?</h3>
+                    <p class="faq-answer">Both properties include: private heated pool, hot tub, fully equipped gourmet kitchen, multiple living areas, outdoor dining and BBQ, WiFi, cable TV, washer/dryer, and ample parking. The Oasis adds a game room; Dockside Dreams adds a boat dock.</p>
                 </div>
                 
             </div>

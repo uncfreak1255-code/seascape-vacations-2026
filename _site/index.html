@@ -13,13 +13,13 @@
     <meta property="og:url" content="https://seascape-vacations.com/">
     <meta property="og:title" content="Seascape Vacations | Luxury Florida Vacation Rentals">
     <meta property="og:description" content="Book direct and save on luxury vacation rentals in Anna Maria Island, Bradenton, and Sarasota Florida. Private pools, waterfront homes, pet-friendly options.">
-    <meta property="og:image" content="https://seascape-vacations.com/hero-optimized.jpg">
+    <meta property="og:image" content="https://seascape-vacations.com/hero-optimized.webp">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Seascape Vacations | Luxury Florida Vacation Rentals">
     <meta name="twitter:description" content="Book direct and save on luxury vacation rentals in Anna Maria Island, Bradenton, and Sarasota. Private pools, waterfront homes.">
-    <meta name="twitter:image" content="https://seascape-vacations.com/hero-optimized.jpg">
+    <meta name="twitter:image" content="https://seascape-vacations.com/hero-optimized.webp">
     
     <!-- Additional SEO -->
     <meta name="robots" content="index, follow">
@@ -33,8 +33,8 @@
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
     <link rel="dns-prefetch" href="https://images.unsplash.com">
     <!-- Preload critical assets - responsive hero images -->
-    <link rel="preload" href="hero-mobile.jpg" as="image" fetchpriority="high" media="(max-width: 768px)">
-    <link rel="preload" href="hero-optimized.jpg" as="image" fetchpriority="high" media="(min-width: 769px)">
+    <link rel="preload" href="hero-mobile.webp" as="image" fetchpriority="high" media="(max-width: 768px)">
+    <link rel="preload" href="hero-optimized.webp" as="image" fetchpriority="high" media="(min-width: 769px)">
     
     <!-- LocalBusiness Schema -->
     <script type="application/ld+json">
@@ -45,7 +45,7 @@
         "description": "Luxury vacation rental property management company serving Anna Maria Island, Bradenton, Sarasota, and Siesta Key, Florida.",
         "url": "https://seascape-vacations.com",
         "logo": "https://seascape-vacations.com/logo-optimized.png",
-        "image": "https://seascape-vacations.com/hero-optimized.jpg",
+        "image": "https://seascape-vacations.com/hero-optimized.webp",
         "telephone": "+1-941-704-8545",
         "email": "info@seascape-vacations.com",
         "address": {
@@ -720,13 +720,13 @@
             background-position: center;
             transform: scale(1.1);
             animation: heroZoom 20s ease-in-out infinite alternate;
-            background-image: url('hero-optimized.jpg');
+            background-image: url('hero-optimized.webp');
         }
 
         /* Mobile hero - smaller image for faster LCP */
         @media (max-width: 768px) {
             .hero-bg {
-                background-image: url('hero-mobile.jpg');
+                background-image: url('hero-mobile.webp');
             }
         }
 
@@ -1108,7 +1108,7 @@
             font-weight: 600;
             letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--brand);
+            color: #4a6f70;
             margin-bottom: 16px;
             position: relative;
         }
@@ -2373,7 +2373,7 @@
 
         /* Animated Section Tags */
         .section-tag {
-            animation: tagShimmer 3s ease-in-out infinite;
+            
         }
 
         @keyframes tagShimmer {
@@ -5264,6 +5264,26 @@
             renderFeaturedProperties(); // Render home page featured section
         }
 
+        
+        function nextCardImage(btn, id, dir) {
+            const container = btn.closest('.prop-card-carousel');
+            const images = container.querySelectorAll('.carousel-img-' + id);
+            if (!images.length) return;
+            
+            let currentIndex = 0;
+            // find currently visible
+            images.forEach((img, i) => {
+                if (img.style.opacity === '1') currentIndex = i;
+                img.style.opacity = '0';
+            });
+            
+            let nextIndex = currentIndex + dir;
+            if (nextIndex < 0) nextIndex = images.length - 1;
+            if (nextIndex >= images.length) nextIndex = 0;
+            
+            images[nextIndex].style.opacity = '1';
+        }
+        
         function renderProperties(filter = 'All Stays') {
             const container = document.getElementById('property-grid');
             if (!container) return;
@@ -5280,7 +5300,16 @@
                 card.onclick = () => showPropertyDetail(p.id);
                 card.innerHTML = `
                     <div class="prop-card-shadow"></div>
-                    <img loading="lazy" src="${p.image}" alt="${p.title}">
+                    <div class="prop-card-carousel" style="position:absolute;inset:0;z-index:1;">
+                        ${p.images && p.images.length > 0 
+                            ? p.images.map((img, i) => `<img loading="lazy" src="${img}" alt="${p.title} - Image ${i+1}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 0.5s ease;opacity:${i===0?'1':'0'};" class="carousel-img-${p.id}" data-index="${i}">`).join('')
+                            : `<img loading="lazy" src="${p.image}" alt="${p.title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
+                        }
+                        ${p.images && p.images.length > 1 ? `
+                        <button onclick="event.stopPropagation(); nextCardImage(this, '${p.id}', -1)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;z-index:10;">‹</button>
+                        <button onclick="event.stopPropagation(); nextCardImage(this, '${p.id}', 1)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;z-index:10;">›</button>
+                        ` : ''}
+                    </div>
                     <div class="prop-card-overlay"></div>
                     <div class="prop-card-content">
                         <div class="prop-card-top">
@@ -5321,7 +5350,16 @@
                 card.onclick = () => showPropertyDetail(p.id);
                 card.innerHTML = `
                     <div class="prop-card-shadow"></div>
-                    <img loading="lazy" src="${p.image}" alt="${p.title}">
+                    <div class="prop-card-carousel" style="position:absolute;inset:0;z-index:1;">
+                        ${p.images && p.images.length > 0 
+                            ? p.images.map((img, i) => `<img loading="lazy" src="${img}" alt="${p.title} - Image ${i+1}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity 0.5s ease;opacity:${i===0?'1':'0'};" class="carousel-img-${p.id}" data-index="${i}">`).join('')
+                            : `<img loading="lazy" src="${p.image}" alt="${p.title}" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">`
+                        }
+                        ${p.images && p.images.length > 1 ? `
+                        <button onclick="event.stopPropagation(); nextCardImage(this, '${p.id}', -1)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;z-index:10;">‹</button>
+                        <button onclick="event.stopPropagation(); nextCardImage(this, '${p.id}', 1)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;border-radius:50%;width:32px;height:32px;cursor:pointer;z-index:10;">›</button>
+                        ` : ''}
+                    </div>
                     <div class="prop-card-overlay"></div>
                     <div class="prop-card-content">
                         <div class="prop-card-top">

@@ -92,6 +92,49 @@ eleventyComputed:
         ]
     }
     </script>
+
+    <!-- Article Schema for GEO freshness -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ seoPage.title }}",
+        "description": "{{ seoPage.description }}",
+        "author": {
+            "@type": "Organization",
+            "name": "{{ site.author }}",
+            "url": "{{ site.url }}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Seascape Vacations",
+            "url": "{{ site.url }}",
+            "logo": { "@type": "ImageObject", "url": "{{ site.url }}/logo-optimized.png" }
+        },
+        "datePublished": "{{ seoPage.datePublished | default('2025-01-15') }}",
+        "dateModified": "{{ site.dateUpdated }}",
+        "mainEntityOfPage": "{{ site.url }}/property-management/{{ seoPage.slug }}/"
+    }
+    </script>
+
+    {% if seoPage.faqs | length %}
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {% for faq in seoPage.faqs %}
+            {
+                "@type": "Question",
+                "name": "{{ faq.q }}",
+                "acceptedAnswer": { "@type": "Answer", "text": "{{ faq.a }}" }
+            }{% if not loop.last %},{% endif %}
+            {% endfor %}
+        ]
+    }
+    </script>
+    {% endif %}
     
     <style>
         :root { --brand: #5F8A8B; --brand-light: #7BA3A4; --brand-dark: #3D5C5D; --brand-darker: #2D4647; --gold: #C9A962; --gold-light: #E8D5A3; --cream: #F5EED6; --cream-dark: #EBE4CC; --cream-light: #FAF7EE; --stone: #3A3A3A; --stone-light: #6A6A6A; --white: #FFFFFF; }
@@ -235,15 +278,60 @@ eleventyComputed:
             </div>
         </section>
 
+        <!-- GEO Intro - AI-citeable rich content -->
+        {% if seoPage.geoIntro %}
+        <section class="section" style="background: white;">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="font-size: 16px; line-height: 1.8; color: var(--stone);">
+                        {{ seoPage.geoIntro | safe }}
+                    </div>
+                    <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--cream-dark); display: flex; align-items: center; gap: 12px;">
+                        <div style="width: 40px; height: 40px; background: var(--brand); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 16px;">S</div>
+                        <div>
+                            <div style="font-weight: 600; font-size: 14px; color: var(--stone);">{{ site.author }}</div>
+                            <div style="font-size: 12px; color: var(--stone-light);">Updated {{ site.dateUpdated }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
         <!-- Long-form content for SEO depth -->
         {% if seoPage.longContent %}
-        <section class="section" style="background: white;">
+        <section class="section" style="background: var(--cream-light);">
             <div class="container">
                 <div style="max-width: 800px; margin: 0 auto;">
                     <h2 style="font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 24px; color: var(--stone);">{{ seoPage.contentTitle | default("More About " + seoPage.h1) }}</h2>
                     <div style="font-size: 16px; line-height: 1.8; color: var(--stone);">
                         {{ seoPage.longContent | safe }}
                     </div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+        <!-- FAQ Section -->
+        {% if seoPage.faqs | length %}
+        <section class="section" style="background: white;">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="section-header" style="text-align: left;">
+                        <p class="section-tag">Frequently Asked Questions</p>
+                        <h2 class="section-title" style="font-size: 28px;">{{ seoPage.h1 }} — FAQ</h2>
+                    </div>
+                    {% for faq in seoPage.faqs %}
+                    <details style="margin-bottom: 16px; background: var(--cream-light); border-radius: 12px; overflow: hidden;" {% if loop.first %}open{% endif %}>
+                        <summary style="padding: 20px 24px; cursor: pointer; font-weight: 600; font-size: 16px; color: var(--stone); list-style: none; display: flex; justify-content: space-between; align-items: center;">
+                            {{ faq.q }}
+                            <span style="color: var(--brand); font-size: 20px; flex-shrink: 0; margin-left: 16px;">+</span>
+                        </summary>
+                        <div style="padding: 0 24px 20px; font-size: 15px; line-height: 1.7; color: var(--stone-light);">
+                            {{ faq.a }}
+                        </div>
+                    </details>
+                    {% endfor %}
                 </div>
             </div>
         </section>

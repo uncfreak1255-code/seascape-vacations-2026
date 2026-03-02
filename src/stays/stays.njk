@@ -71,6 +71,32 @@ eleventyComputed:
         ]
     }
     </script>
+
+    <!-- Article Schema for GEO freshness + E-E-A-T -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{ seoPage.title }}",
+        "description": "{{ seoPage.description }}",
+        "url": "{{ site.url }}/stays/{{ seoPage.slug }}/",
+        "datePublished": "2025-01-22",
+        "dateModified": "{{ site.dateUpdated }}",
+        "author": {
+            "@type": "Organization",
+            "name": "{{ site.author }}",
+            "url": "{{ site.url }}"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{ site.name }}",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ site.url }}/logo-optimized.png"
+            }
+        }
+    }
+    </script>
     
     <!-- FAQ Schema -->
     {% if seoPage.faqs and seoPage.faqs.length > 0 %}
@@ -235,8 +261,25 @@ eleventyComputed:
                 <p class="section-tag" style="color: var(--gold);">{{ site.bookingMessage }}</p>
                 <h1 style="font-size: clamp(32px, 5vw, 48px); margin-bottom: 20px; color: white;">{{ seoPage.h1 }}</h1>
                 <p style="max-width: 700px; margin: 0 auto; opacity: 0.9; font-size: 18px;">{{ seoPage.intro }}</p>
+                <!-- Author + Date for E-E-A-T and GEO freshness signals -->
+                <div style="margin-top: 24px; display: flex; justify-content: center; align-items: center; gap: 16px; font-size: 13px; opacity: 0.8;">
+                    <span>✍️ By {{ site.author }}</span>
+                    <span>|</span>
+                    <time datetime="{{ site.dateUpdated }}">Last Updated: {{ site.dateUpdated }}</time>
+                </div>
             </div>
         </section>
+
+        <!-- GEO-optimized intro content (first 200 words answer the query directly) -->
+        {% if seoPage.geoIntro %}
+        <section class="section" style="background: white; padding: 48px 24px;">
+            <div class="container" style="max-width: 800px;">
+                <div style="font-size: 17px; line-height: 1.9; color: var(--stone);">
+                    {{ seoPage.geoIntro | safe }}
+                </div>
+            </div>
+        </section>
+        {% endif %}
 
         <section class="section">
             <div class="container">
@@ -250,6 +293,7 @@ eleventyComputed:
                     {% for property in properties %}
                     <article class="property-card">
                         <div class="property-img" style="background-image: url('{{ property.image }}')">
+                            <img src="{{ property.image }}" alt="{{ property.name }} - {{ property.specs }} vacation rental in {{ property.city }}, Florida" loading="lazy" style="position:absolute;width:100%;height:100%;object-fit:cover;top:0;left:0;">
                             <span class="property-badge">⭐ {{ property.rating }}</span>
                         </div>
                         <div class="property-body">
